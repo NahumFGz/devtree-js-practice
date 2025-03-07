@@ -1,4 +1,4 @@
-const express = require('express')
+import express from 'express'
 
 const app = express()
 
@@ -11,6 +11,7 @@ app.get('/ecommerce', (req, res) => {
   res.send('Este es el ecommerce')
 })
 
-app.listen(4000, () => {
-  console.log('Servidor funcionando')
+const port = process.env.PORT || 4000
+app.listen(port, () => {
+  console.log('Servidor funcionando en el puerto: ', port)
 })
