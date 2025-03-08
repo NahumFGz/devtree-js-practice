@@ -15,3 +15,11 @@ npm install express@3.20.3
   nodemon index.js
   "dev": "nodemon index.js"
   npm run dev
+
+# Instalar typescript
+
+- Librerias
+  npm install -D typescript ts-node
+  quitar de package.json "type": "module",
+  crear tsconfig.json
+  actualizar el comando de npm run dev

@@ -4,7 +4,7 @@ const app = express()
 
 //Routing
 app.get('/', (req, res) => {
-  res.send('Hola Mundo en express')
+  res.send('Hola Mundo en express / ts')
 })
 
 app.get('/ecommerce', (req, res) => {
