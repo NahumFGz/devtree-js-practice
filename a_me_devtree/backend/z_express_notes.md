@@ -1,6 +1,7 @@
 npm init
 npm install express
 npm install express@3.20.3
+npx kill-port 4000
 
 # Para iniciar el servidor de desarrollo
 
