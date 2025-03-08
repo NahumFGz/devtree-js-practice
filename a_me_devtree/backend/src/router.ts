@@ -1,18 +1,11 @@
-import { Router } from "express"
+import { Router } from 'express'
 
 const router = Router()
 
-//Routing
-router.get('/', (req, res) => {
-  res.send('Hola Mundo en Express / TypeScript')
-})
-
-router.get('/nosotros', (req, res) => {
-    res.send('Nosotros')
-  })
-
-router.get('/blog', (req, res) => {
-res.send('Blog')
+/** Autentificación y Registro **/
+router.post('/auth/register', (req, res) => {
+  console.log('Desde Register')
+  console.log(req.body)
 })
 
 export default router
