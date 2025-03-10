@@ -15,7 +15,7 @@ npx kill-port 4000
   npm install -save-dev nodemon
   nodemon index.js
   "dev": "nodemon index.js"
-  npm run dev
+  `npm run dev`
 
 # Instalar typescript
 
@@ -23,4 +23,4 @@ npx kill-port 4000
   npm install -D typescript ts-node
   quitar de package.json "type": "module",
   crear tsconfig.json
-  actualizar el comando de npm run dev
+  actualizar el comando de `npm run dev`
