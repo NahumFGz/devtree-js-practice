@@ -11,6 +11,7 @@ export const connectDB = async () => {
     const url2 = `${connection.host}:${connection.port}`
     console.log(`MongoDB Conectado en ${url2}`)
   } catch (error) {
-    console.log(error)
+    console.log(error.message)
+    process.exit(1)
   }
 }
