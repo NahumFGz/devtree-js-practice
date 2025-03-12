@@ -17,6 +17,20 @@ type Product = {
   name: string
 }
 
+/*
+type ProductID = {
+  id: Product['id']
+}
+*/
+//type ProductID = Omit<Product, 'id'>
+//type ProductID = Omit<Product, 'id' | 'name'>
+//type ProductID = Pick<Product, 'id' | 'name'>
+type ProductID = Pick<Product, 'id'>
+
+let product3: ProductID = {
+  id: 1,
+}
+
 let product: Product = {
   id: 1,
   price: 30,

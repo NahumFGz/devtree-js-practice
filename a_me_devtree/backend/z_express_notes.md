@@ -35,3 +35,8 @@ npx kill-port 4000
 
 - Librerias
   npm install colors
+
+# Notas
+
+- Diferencias entre types e interfaces
+  nombres similares en interfaces pero no en types, si son el mismo nombre en interfaces, se agrega como un atributo más
