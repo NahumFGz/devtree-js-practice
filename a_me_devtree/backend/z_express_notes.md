@@ -30,3 +30,8 @@ npx kill-port 4000
 - Librerias
   npm install mongoose
   npm install dotenv
+
+# Colores en consola
+
+- Librerias
+  npm install colors
