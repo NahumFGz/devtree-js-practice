@@ -24,3 +24,9 @@ npx kill-port 4000
   quitar de package.json "type": "module",
   crear tsconfig.json
   actualizar el comando de `npm run dev`
+
+# Instalar mongoose
+
+- Librerias
+  npm install mongoose
+  npm install dotenv
