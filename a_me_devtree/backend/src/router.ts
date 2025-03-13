@@ -1,6 +1,6 @@
 import { Router } from 'express'
 import { body } from 'express-validator'
-import { createAccount } from './handlers'
+import { createAccount, login } from './handlers'
 
 const router = Router()
 
@@ -14,6 +14,13 @@ router.post(
     .isLength({ min: 8 })
     .withMessage('El password es muy corto, mínimo 8 caracteres'),
   createAccount
+)
+
+router.post(
+  '/auth/login',
+  body('email').isEmail().withMessage('E-mail no válido'),
+  body('password').isLength({ min: 8 }).withMessage('El password no valido'),
+  login
 )
 
 export default router
