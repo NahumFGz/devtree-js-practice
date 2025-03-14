@@ -43,4 +43,6 @@ export const login = async (req: Request, res: Response) => {
     const error = new Error('Password Incorrecto')
     return res.status(401).json({ error: error.message })
   }
+
+  res.send('Autentificado...')
 }
