@@ -17,24 +17,22 @@ npx kill-port 4000
   "dev": "nodemon index.js"
   `npm run dev`
 
-# Instalar typescript
-
-- Librerias
+- Instalación de typescript
   npm install -D typescript ts-node
   quitar de package.json "type": "module",
   crear tsconfig.json
   actualizar el comando de `npm run dev`
 
-# Instalar mongoose
-
-- Librerias
+- Librerias de mongoose
   npm install mongoose
   npm install dotenv
 
-# Colores en consola
-
-- Librerias
+- Librerias de colores
   npm install colors
+
+- Instalación de cors
+  npm install cors
+  npm install -D @type/cors
 
 # Notas
 
