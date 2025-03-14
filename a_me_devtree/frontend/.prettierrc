@@ -6,5 +6,6 @@
     "quoteProps": "as-needed",
     "arrowParens": "always",
     "trailingComma": "none",
-    "semi": false
+    "semi": false,
+    "jsxBracketSameLine": false
 }
