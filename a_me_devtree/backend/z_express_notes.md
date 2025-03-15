@@ -34,6 +34,10 @@ npx kill-port 4000
   npm install cors
   npm install -D @type/cors
 
+- Instalación de JWT
+  npm install jsonwebtoken
+  npm install -D @types/jsonwebtoken
+
 # Notas
 
 - Diferencias entre types e interfaces
