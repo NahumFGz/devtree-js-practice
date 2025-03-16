@@ -24,6 +24,10 @@
   npm install @heroicons/react
   npm install -D @tailwindcss/forms
 
+- React Query
+  npm install @tanstack/react-query
+  npm install @tanstack/react-query-devtools
+
 #----------------------------------------------------------------------------#
 #----------------------------------------------------------------------------#
 #----------------------------------------------------------------------------#
