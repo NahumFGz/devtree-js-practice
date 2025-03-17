@@ -42,6 +42,8 @@ npx kill-port 4000
   npm i cloudinary
   npm i formidable
   npm i --save-dev @types/formidable
+  npm i uuid
+  npm i --save-dev @types/uuid
 
 # Notas
 

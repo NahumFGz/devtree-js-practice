@@ -1,6 +1,7 @@
 import type { Request, Response } from 'express'
 import slug from 'slug'
 import User from '../models/User'
+import { v4 as uuid } from 'uuid'
 import { checkPassword, hashPassword } from '../utils/auth'
 import { generateJWT } from '../utils/jwt'
 import formidable from 'formidable'
@@ -84,7 +85,7 @@ export const uploadImage = async (req: Request, res: Response) => {
     form.parse(req, (error, fields, files) => {
       cloudinary.uploader.upload(
         files.file[0].filepath,
-        {},
+        { public_id: uuid() },
         async function (error, result) {
           if (error) {
             const error = new Error('Hubo un error al subir la imagen')
@@ -92,7 +93,9 @@ export const uploadImage = async (req: Request, res: Response) => {
           }
 
           if (result) {
-            console.log(result.secure_url)
+            req.user.image = result.secure_url
+            await req.user.save()
+            return res.json({ image: result.secure_url })
           }
         }
       )
