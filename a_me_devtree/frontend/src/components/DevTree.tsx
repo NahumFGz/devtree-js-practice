@@ -8,8 +8,6 @@ type DevTreePros = {
 }
 
 export default function DevTree({ data }: DevTreePros) {
-  console.log('data', data)
-
   return (
     <>
       <header className='bg-slate-800 py-5'>
