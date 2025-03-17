@@ -38,6 +38,11 @@ npx kill-port 4000
   npm install jsonwebtoken
   npm install -D @types/jsonwebtoken
 
+- Librerias para hospedar imágenes
+  npm i cloudinary
+  npm i formidable
+  npm i --save-dev @types/formidable
+
 # Notas
 
 - Diferencias entre types e interfaces
