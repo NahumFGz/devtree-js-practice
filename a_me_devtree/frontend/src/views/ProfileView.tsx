@@ -1,19 +1,36 @@
 import { useForm } from 'react-hook-form'
 import { ErrorMessage } from '../components/ErrorMessage'
+import { useQueryClient } from '@tanstack/react-query'
+import { ProfileForm, User } from '../types'
 
 export default function ProfileView() {
+  /*
+  !TanStack cachea las llamadas por la queryKey, pero tambien se puede acceder directamente 
+  ! a esa informacion sin necesidar de otro fetch por que ya está cacheado
+  const { data, isLoading, isError } = useQuery({
+    queryFn: getUser,
+    queryKey: ['user'],
+    retry: 1,
+    refetchOnWindowFocus: false
+  })
+  console.log('getUser', data)
+  */
+
+  const queryClient = useQueryClient()
+  const data: User = queryClient.getQueryData(['user'])!
+
   const {
     register,
     handleSubmit,
     formState: { errors }
-  } = useForm({
+  } = useForm<ProfileForm>({
     defaultValues: {
-      handle: '',
-      description: ''
+      handle: data.handle,
+      description: data.description
     }
   })
 
-  const handleUserProfileForm = (formData) => {
+  const handleUserProfileForm = (formData: ProfileForm) => {
     console.log('desde handleUserProfileForm', formData)
   }
 
