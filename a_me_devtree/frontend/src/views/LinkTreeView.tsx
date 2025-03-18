@@ -1,13 +1,16 @@
 import { useState } from 'react'
-import { useMutation } from '@tanstack/react-query'
+import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
 import { social } from '../data/social'
 import DevTreeInput from '../components/DevTreeInput'
 import { isValidUrl } from '../utils'
 import { updateProfile } from '../api/DevTreeAPI'
+import { User } from '../types'
 
 export default function LinkTreeView() {
   const [devTreeLinks, setDevTreeLinks] = useState(social)
+  const queryClient = useQueryClient()
+  const user: User = queryClient.getQueryData(['user'])!
 
   const { mutate } = useMutation({
     mutationFn: updateProfile,
@@ -39,8 +42,15 @@ export default function LinkTreeView() {
       return link
     })
 
-    console.log(updatedLinks)
     setDevTreeLinks(updatedLinks)
+
+    //! despues de setear, actualizar los datos de client
+    queryClient.setQueryData(['user'], (prevData: User) => {
+      return {
+        ...prevData,
+        links: JSON.stringify(updatedLinks)
+      }
+    })
   }
 
   return (
@@ -54,7 +64,10 @@ export default function LinkTreeView() {
             handleEnableLink={handleEnableLink}
           />
         ))}
-        <button className='bg-cyan-400 p-2 text-lg w-full uppercase text-slate-600 rounded font-bold'>
+        <button
+          className='bg-cyan-400 p-2 text-lg w-full uppercase text-slate-600 rounded font-bold'
+          onClick={() => mutate(user)}
+        >
           guardar cambios
         </button>
       </div>
