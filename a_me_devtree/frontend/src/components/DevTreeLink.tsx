@@ -12,7 +12,6 @@ export default function DevTreeLink({ link }: DevTreeLinkProps) {
         style={{ backgroundImage: `url('/social/icon_${link.name}.svg')` }}
       ></div>
       <p className='capitalize'>
-        {' '}
         Visita mi: <span className='font-bold'>{link.name}</span>
       </p>
     </li>
