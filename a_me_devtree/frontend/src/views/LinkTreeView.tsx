@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useMutation, useQueryClient } from '@tanstack/react-query'
 import { toast } from 'sonner'
 import { social } from '../data/social'
@@ -21,6 +21,18 @@ export default function LinkTreeView() {
       toast.success('Actualizado Correctamente')
     }
   })
+
+  useEffect(() => {
+    const updatedData = devTreeLinks.map((item) => {
+      const userlink = JSON.parse(user.links).find((link) => link.name === item.name)
+      if (userlink) {
+        return { ...item, url: userlink.url, enabled: userlink.enabled }
+      }
+      return item
+    })
+
+    setDevTreeLinks(updatedData)
+  }, [])
 
   const handleUrlChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const updatedLinks = devTreeLinks.map((link) =>
