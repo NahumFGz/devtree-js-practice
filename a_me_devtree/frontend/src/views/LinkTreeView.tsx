@@ -53,6 +53,8 @@ export default function LinkTreeView() {
       */
   }
 
+  const links: SocialNetwork[] = JSON.parse(user.links)
+
   const handleEnableLink = (socialNetwork: string) => {
     const updatedLinks = devTreeLinks.map((link) => {
       if (link.name === socialNetwork) {
@@ -67,11 +69,26 @@ export default function LinkTreeView() {
 
     setDevTreeLinks(updatedLinks)
 
+    let updatedItems: SocialNetwork[] = []
+
+    const selectedSocialNetwork = updatedLinks.find((link) => link.name === socialNetwork)
+    if (selectedSocialNetwork?.enabled) {
+      const newItem = {
+        ...selectedSocialNetwork,
+        id: links.length + 1
+      }
+      updatedItems = [...links, newItem]
+    } else {
+      console.log('Deshabilitando...')
+    }
+
+    console.log('---> updatedItems', updatedItems)
     //! despues de setear, actualizar los datos de client
+    //* Esto almacena los datos en la BD
     queryClient.setQueryData(['user'], (prevData: User) => {
       return {
         ...prevData,
-        links: JSON.stringify(updatedLinks)
+        links: JSON.stringify(updatedItems)
       }
     })
   }
