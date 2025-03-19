@@ -43,12 +43,14 @@ export default function LinkTreeView() {
     setDevTreeLinks(updatedLinks)
 
     //! despues de setear, actualizar los datos de client
+    /*
     queryClient.setQueryData(['user'], (prevData: User) => {
       return {
         ...prevData,
         links: JSON.stringify(updatedLinks)
       }
     })
+      */
   }
 
   const handleEnableLink = (socialNetwork: string) => {
