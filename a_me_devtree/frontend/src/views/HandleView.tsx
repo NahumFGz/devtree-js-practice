@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom'
+import { Navigate, useParams } from 'react-router-dom'
 import { useQuery } from '@tanstack/react-query'
 import { getUserByHandle } from '../api/DevTreeAPI'
 
@@ -12,8 +12,10 @@ export default function HandleView() {
   })
 
   console.log('data: ', data)
-  console.log('error:', error)
-  console.log('isLoading: ', isLoading)
+
+  if (isLoading) return 'Cargando...'
+  if (error) return <Navigate to={'/404'} />
+
   return (
     <>
       <p>HandleView</p>
