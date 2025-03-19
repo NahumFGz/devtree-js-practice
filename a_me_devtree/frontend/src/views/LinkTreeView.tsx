@@ -79,12 +79,13 @@ export default function LinkTreeView() {
       }
       updatedItems = [...links, newItem]
     } else {
-      console.log('Deshabilitando...')
+      //!Si está deshabilitando para evitar que se rompa la muestra del caché
+      updatedItems = links.filter((link) => link.name !== socialNetwork)
     }
 
     console.log('---> updatedItems', updatedItems)
     //! despues de setear, actualizar los datos de client
-    //* Esto almacena los datos en la BD
+    //* Esto almacena los datos en la caché para luego subirlo a la BD
     queryClient.setQueryData(['user'], (prevData: User) => {
       return {
         ...prevData,
